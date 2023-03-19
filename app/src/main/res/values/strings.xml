@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">BinApplication</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="number">Number</string>
+    <string name="search">Search</string>
+    <string name="phone">Phone: </string>
+    <string name="length">Length: </string>
+    <string name="luhn">Luhn: </string>
+    <string name="scheme">Scheme: </string>
+    <string name="type">Type: </string>
+    <string name="brand">Brand: </string>
+    <string name="prepaid">Prepaid: </string>
+    <string name="country">Country</string>
+    <string name="numeric">Numeric: </string>
+    <string name="alpha2">Alpha2: </string>
+    <string name="name">Name: </string>
+    <string name="emojiLabel">Emoji: </string>
+    <string name="currency">Currency: </string>
+    <string name="latitude">Latitude: </string>
+    <string name="longitude">Longitude: </string>
+    <string name="bank">Bank</string>
+    <string name="url">URL: </string>
+    <string name="city">City</string>
+</resources>
