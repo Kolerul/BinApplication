@@ -11,6 +11,9 @@ import kotlinx.coroutines.launch
 
 class BinViewModel: ViewModel() {
 
+    private var _history = mutableListOf<String>()
+    val history: MutableList<String>
+        get() = _history
 
     private val _cardData = MutableLiveData<CardData>()
 
@@ -20,6 +23,9 @@ class BinViewModel: ViewModel() {
     fun getCardData(number: String){
         viewModelScope.launch {
             try{
+                if (!history.contains(number)){
+                    history.add(number)
+                }
                 val request = number.toInt()
                 val result = BinApi.retrofitService.getCardData(request)
                 _cardData.value = result
