@@ -22,4 +22,5 @@
     <string name="url">URL: </string>
     <string name="city">City</string>
     <string name="error">Error</string>
+    <string name="loading">loading</string>
 </resources>
