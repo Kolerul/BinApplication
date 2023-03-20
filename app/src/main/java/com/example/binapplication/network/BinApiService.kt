@@ -1,6 +1,6 @@
 package com.example.binapplication.network
 
-import com.example.binapplication.network.data.CardData
+import com.example.binapplication.data.JSON.CardData
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit

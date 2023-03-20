@@ -1,3 +1,3 @@
-package com.example.binapplication.network.data
+package com.example.binapplication.data.JSON
 
 data class Number(val length: Int?, val luhn: Boolean?)

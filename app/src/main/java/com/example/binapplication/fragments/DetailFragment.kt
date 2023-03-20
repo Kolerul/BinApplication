@@ -7,14 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.binapplication.BinApplication
 import com.example.binapplication.BinViewModel
+import com.example.binapplication.BinViewModelFactory
 import com.example.binapplication.databinding.FragmentDetailBinding
 
 
 class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
 
-    private val viewModel: BinViewModel by activityViewModels()
+    private val viewModel: BinViewModel by activityViewModels{
+        BinViewModelFactory((activity?.application as BinApplication).database.numberDao())
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentDetailBinding.inflate(inflater, container, false)
