@@ -7,4 +7,10 @@
         <item name="color">@color/black</item>
         <item name="android:layout_marginTop">8dp</item>
     </style>
+
+    <style name="Widget.LunchTray.DividerVertical" parent="Widget.LunchTray.Divider">
+        <item name="android:background">?attr/dividerVertical</item>
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 </resources>

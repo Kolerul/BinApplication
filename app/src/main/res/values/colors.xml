@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#2196F3</color>
+    <color name="red">#FF0000</color>
+    <color name="light_red">#FF3838</color>
+    <color name="orange">#E84613</color>
+    <color name="grey_orange">#9A513A</color>
+    <color name="grey">#4B4B4B</color>
 </resources>

@@ -21,7 +21,7 @@ private val retrofit = Retrofit.Builder()
 
 interface BinApiService {
     @GET("{number}")
-    suspend fun getCardData(@Path("number") number: Int): CardData
+    suspend fun getCardData(@Path("number") number: String): CardData
 }
 
 object BinApi{

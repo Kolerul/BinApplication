@@ -54,7 +54,6 @@ class SearchFragment : Fragment() {
 
     }
 
-
     private fun toNextScreen(number: String){
         viewModel.getCardData(number)
         findNavController().navigate(R.id.action_searchFragment2_to_detailFragment)

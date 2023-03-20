@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.binapplication.BinApiStatus
 import com.example.binapplication.BinApplication
 import com.example.binapplication.BinViewModel
 import com.example.binapplication.BinViewModelFactory
@@ -29,8 +30,20 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-            viewModel.cardData.observe(this.viewLifecycleOwner){
-                binding.apply {
+        viewModel.status.observe(this.viewLifecycleOwner){
+            when (it){
+                BinApiStatus.LOADING ->{
+                    binding.apply {
+                        errorLayout.visibility = View.GONE
+                        dataConstraintLayout.visibility = View.GONE
+                        loadingLayout.visibility = View.VISIBLE
+                    }
+                }
+                BinApiStatus.DONE -> {
+                    binding.apply {
+                        errorLayout.visibility = View.GONE
+                        loadingLayout.visibility = View.GONE
+                        dataConstraintLayout.visibility = View.VISIBLE
                     viewModel.cardData.value?.apply {
                         lengthData.text = number?.length.toString()
                         lunhData.text = number?.luhn.toString()
@@ -50,8 +63,19 @@ class DetailFragment : Fragment() {
                         phoneData.text = bank?.phone
                         cityData.text = bank?.city
                     }
+                }}
+                BinApiStatus.ERROR -> {
+                    binding.apply {
+                        dataConstraintLayout.visibility = View.GONE
+                        loadingLayout.visibility = View.GONE
+                        viewModel.statusMessage.observe(this@DetailFragment.viewLifecycleOwner){
+                            errorMessage.text = it
+                        }
+                        errorLayout.visibility = View.VISIBLE
+                    }
                 }
             }
+        }
 
         binding.urlData.setOnClickListener {
             val queryUrl: Uri = Uri.parse("https://www.google.com/search?q=${binding.urlData.text}")

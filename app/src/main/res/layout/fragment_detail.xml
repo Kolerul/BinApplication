@@ -4,381 +4,422 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
 >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:columnCount="3"
-            android:rowCount="20"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="1.0"
-            android:id="@+id/linearLayout">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
 
-        <TextView
-                android:text="@string/number"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
+                android:id="@+id/error_layout"
+                android:orientation="vertical">
+            <ImageView
+                    android:contentDescription="@string/error"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp" app:srcCompat="@drawable/ic_error"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/error"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:id="@+id/error_message"/>
+
+        </LinearLayout>
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:id="@+id/loading_layout">
+            <ImageView
+                    android:contentDescription="@string/loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/loading_animation"
+                    android:id="@+id/loading_image"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintVertical_bias="0.0" android:id="@+id/numberLabel"
-                app:layout_constraintHorizontal_bias="0.5"/>
-        <TextView
-                android:id="@+id/lengthLabel"
-                android:text="@string/length"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/numberLabel" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/luhn"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/lunhLabel"
-                app:layout_constraintTop_toBottomOf="@+id/lengthLabel" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
-
-        <View
-                style="@style/Widget.LunchTray.Divider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lunhLabel" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
-                android:id="@+id/view"/>
-
-        <TextView
-                android:text="@string/scheme"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/schemeLabel"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/view"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.018"/>
-        <TextView
-                android:text="@string/type"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/typeLabel"
-                app:layout_constraintTop_toBottomOf="@+id/schemeLabel"
+                android:gravity="center"
+                android:columnCount="3"
+                android:rowCount="20"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/brand"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/brandLabel"
-                app:layout_constraintTop_toBottomOf="@+id/typeLabel" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/prepaid"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/prepaidLabel"
-                app:layout_constraintTop_toBottomOf="@+id/brandLabel" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="1.0"
+                android:id="@+id/dataConstraintLayout">
 
-        <View
-                style="@style/Widget.LunchTray.Divider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/prepaidLabel" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
-                android:id="@+id/view2"/>
-        <TextView
-                android:text="@string/country"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/countryLabel"
-                app:layout_constraintTop_toBottomOf="@+id/view2"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.033"/>
-        <TextView
-                android:text="@string/numeric"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/numericLabel"
-                app:layout_constraintTop_toBottomOf="@+id/countryLabel"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/alpha2"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/alpha2Label"
-                app:layout_constraintTop_toBottomOf="@+id/numericLabel"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/name"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/countryNameLabel"
-                app:layout_constraintTop_toBottomOf="@+id/alpha2Label" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/emojiLabel"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/emojiLabel"
-                app:layout_constraintTop_toBottomOf="@+id/countryNameLabel" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/currency"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/currencyLabel"
-                app:layout_constraintTop_toBottomOf="@+id/emojiLabel"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/latitude"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/latitudeLabel"
-                app:layout_constraintTop_toBottomOf="@+id/currencyLabel"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/longitude"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/longtitudeLabel"
-                app:layout_constraintTop_toBottomOf="@+id/currencyLabel"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.135"/>
+            <TextView
+                    android:text="@string/number"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0.0" android:id="@+id/numberLabel"
+                    app:layout_constraintHorizontal_bias="0.5"/>
+            <TextView
+                    android:id="@+id/lengthLabel"
+                    android:text="@string/length"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/numberLabel" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/luhn"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/lunhLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/lengthLabel" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
 
-        <View
-                style="@style/Widget.LunchTray.Divider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:id="@+id/view3" app:layout_constraintTop_toBottomOf="@+id/longtitudeLabel"
-                app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/bank"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/bankLabel"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/view3"
-                app:layout_constraintVertical_bias="0.075"/>
-        <TextView
-                android:text="@string/name"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/bankNameLabel"
-                app:layout_constraintTop_toBottomOf="@+id/bankLabel"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/url"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/urlLabel"
-                app:layout_constraintTop_toBottomOf="@+id/bankNameData" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/phone"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/phoneLabel"
-                app:layout_constraintTop_toBottomOf="@+id/urlLabel"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:text="@string/city"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/cityLabel"
-                app:layout_constraintTop_toBottomOf="@+id/phoneLabel"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/lengthData"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/lengthLabel"
-                app:layout_constraintTop_toTopOf="@+id/lengthLabel" app:layout_constraintBottom_toBottomOf="@+id/lengthLabel"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/lunhData"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/lunhLabel"
-                app:layout_constraintTop_toTopOf="@+id/lunhLabel" app:layout_constraintBottom_toBottomOf="@+id/lunhLabel"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
+            <View
+                    style="@style/Widget.LunchTray.Divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lunhLabel" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
+                    android:id="@+id/view"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/schemeData"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/schemeLabel"
-                app:layout_constraintTop_toTopOf="@+id/schemeLabel" app:layout_constraintBottom_toBottomOf="@+id/schemeLabel"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
+            <TextView
+                    android:text="@string/scheme"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/schemeLabel"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/view"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.018"/>
+            <TextView
+                    android:text="@string/type"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/typeLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/schemeLabel"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/brand"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/brandLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/typeLabel" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/prepaid"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/prepaidLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/brandLabel" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/typeData"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/typeLabel"
-                app:layout_constraintTop_toTopOf="@+id/typeLabel" app:layout_constraintBottom_toBottomOf="@+id/typeLabel"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
+            <View
+                    style="@style/Widget.LunchTray.Divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/prepaidLabel" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
+                    android:id="@+id/view2"/>
+            <TextView
+                    android:text="@string/country"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/countryLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/view2"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.002"
+                    app:layout_constraintHorizontal_bias="0.501"/>
+            <TextView
+                    android:text="@string/numeric"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/numericLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/countryLabel"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/alpha2"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/alpha2Label"
+                    app:layout_constraintTop_toBottomOf="@+id/numericLabel"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/name"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/countryNameLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/alpha2Label" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/emojiLabel"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/emojiLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/countryNameLabel" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/currency"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/currencyLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/emojiLabel"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/latitude"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/latitudeLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/currencyLabel"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/longitude"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/longtitudeLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/currencyLabel"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.135"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/brandData"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/brandLabel"
-                app:layout_constraintTop_toTopOf="@+id/brandLabel" app:layout_constraintBottom_toBottomOf="@+id/brandLabel"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
+            <View
+                    style="@style/Widget.LunchTray.Divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/view3" app:layout_constraintTop_toBottomOf="@+id/longtitudeLabel"
+                    app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/bank"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/bankLabel"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/view3"
+                    app:layout_constraintVertical_bias="0.018"/>
+            <TextView
+                    android:text="@string/name"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/bankNameLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/bankLabel"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/url"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/urlLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/bankNameData" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/phone"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/phoneLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/urlLabel"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:text="@string/city"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/cityLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneLabel"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/lengthData"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/lengthLabel"
+                    app:layout_constraintTop_toTopOf="@+id/lengthLabel" app:layout_constraintBottom_toBottomOf="@+id/lengthLabel"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/lunhData"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/lunhLabel"
+                    app:layout_constraintTop_toTopOf="@+id/lunhLabel" app:layout_constraintBottom_toBottomOf="@+id/lunhLabel"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/prepaidData"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/prepaidLabel"
-                app:layout_constraintTop_toTopOf="@+id/prepaidLabel" app:layout_constraintBottom_toBottomOf="@+id/prepaidLabel"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/schemeData"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/schemeLabel"
+                    app:layout_constraintTop_toTopOf="@+id/schemeLabel" app:layout_constraintBottom_toBottomOf="@+id/schemeLabel"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/numericData"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/numericLabel"
-                app:layout_constraintTop_toTopOf="@+id/numericLabel" app:layout_constraintBottom_toBottomOf="@+id/numericLabel"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/typeData"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/typeLabel"
+                    app:layout_constraintTop_toTopOf="@+id/typeLabel" app:layout_constraintBottom_toBottomOf="@+id/typeLabel"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/alpha2Data"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/alpha2Label"
-                app:layout_constraintTop_toTopOf="@+id/alpha2Label" app:layout_constraintBottom_toBottomOf="@+id/alpha2Label"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/brandData"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/brandLabel"
+                    app:layout_constraintTop_toTopOf="@+id/brandLabel" app:layout_constraintBottom_toBottomOf="@+id/brandLabel"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/countryNameData"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/countryNameLabel"
-                app:layout_constraintTop_toTopOf="@+id/countryNameLabel" app:layout_constraintBottom_toBottomOf="@+id/countryNameLabel"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/prepaidData"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/prepaidLabel"
+                    app:layout_constraintTop_toTopOf="@+id/prepaidLabel" app:layout_constraintBottom_toBottomOf="@+id/prepaidLabel"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/emojiData"
-                app:layout_constraintStart_toEndOf="@+id/emojiLabel"
-                app:layout_constraintTop_toTopOf="@+id/emojiLabel"
-                app:layout_constraintBottom_toBottomOf="@+id/emojiLabel" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/numericData"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/numericLabel"
+                    app:layout_constraintTop_toTopOf="@+id/numericLabel" app:layout_constraintBottom_toBottomOf="@+id/numericLabel"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/currencyData"
-                app:layout_constraintStart_toEndOf="@+id/currencyLabel"
-                app:layout_constraintTop_toTopOf="@+id/currencyLabel"
-                app:layout_constraintBottom_toBottomOf="@+id/currencyLabel" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/alpha2Data"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/alpha2Label"
+                    app:layout_constraintTop_toTopOf="@+id/alpha2Label" app:layout_constraintBottom_toBottomOf="@+id/alpha2Label"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/latitudeData"
-                app:layout_constraintStart_toEndOf="@+id/latitudeLabel"
-                app:layout_constraintTop_toTopOf="@+id/latitudeLabel"
-                app:layout_constraintBottom_toBottomOf="@+id/latitudeLabel" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/countryNameData"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/countryNameLabel"
+                    app:layout_constraintTop_toTopOf="@+id/countryNameLabel" app:layout_constraintBottom_toBottomOf="@+id/countryNameLabel"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/longtitudeData"
-                app:layout_constraintStart_toEndOf="@+id/longtitudeLabel"
-                app:layout_constraintTop_toTopOf="@+id/longtitudeLabel"
-                app:layout_constraintBottom_toBottomOf="@+id/longtitudeLabel" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/emojiData"
+                    app:layout_constraintStart_toEndOf="@+id/emojiLabel"
+                    app:layout_constraintTop_toTopOf="@+id/emojiLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/emojiLabel" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/bankNameData"
-                app:layout_constraintStart_toEndOf="@+id/bankNameLabel"
-                app:layout_constraintTop_toTopOf="@+id/bankNameLabel"
-                app:layout_constraintBottom_toBottomOf="@+id/bankNameLabel" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/currencyData"
+                    app:layout_constraintStart_toEndOf="@+id/currencyLabel"
+                    app:layout_constraintTop_toTopOf="@+id/currencyLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/currencyLabel" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/blue"
-                android:id="@+id/urlData"
-                app:layout_constraintStart_toEndOf="@+id/urlLabel"
-                app:layout_constraintTop_toTopOf="@+id/urlLabel"
-                app:layout_constraintBottom_toBottomOf="@+id/urlLabel" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/latitudeData"
+                    app:layout_constraintStart_toEndOf="@+id/latitudeLabel"
+                    app:layout_constraintTop_toTopOf="@+id/latitudeLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/latitudeLabel" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:textColor="@color/blue"
-                android:layout_height="wrap_content" android:id="@+id/phoneData"
-                app:layout_constraintStart_toEndOf="@+id/phoneLabel"
-                app:layout_constraintTop_toTopOf="@+id/phoneLabel"
-                app:layout_constraintBottom_toBottomOf="@+id/phoneLabel" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/longtitudeData"
+                    app:layout_constraintStart_toEndOf="@+id/longtitudeLabel"
+                    app:layout_constraintTop_toTopOf="@+id/longtitudeLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/longtitudeLabel" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
 
-        <TextView
-                android:textSize="20sp"
-                android:layout_marginStart="4dp"
-                android:textColor="@color/blue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/cityData"
-                app:layout_constraintStart_toEndOf="@+id/cityLabel"
-                app:layout_constraintTop_toTopOf="@+id/cityLabel"
-                app:layout_constraintBottom_toBottomOf="@+id/cityLabel" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/bankNameData"
+                    app:layout_constraintStart_toEndOf="@+id/bankNameLabel"
+                    app:layout_constraintTop_toTopOf="@+id/bankNameLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/bankNameLabel" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:id="@+id/urlData"
+                    app:layout_constraintStart_toEndOf="@+id/urlLabel"
+                    app:layout_constraintTop_toTopOf="@+id/urlLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/urlLabel" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/blue"
+                    android:layout_height="wrap_content" android:id="@+id/phoneData"
+                    app:layout_constraintStart_toEndOf="@+id/phoneLabel"
+                    app:layout_constraintTop_toTopOf="@+id/phoneLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/phoneLabel" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+
+            <TextView
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/cityData"
+                    app:layout_constraintStart_toEndOf="@+id/cityLabel"
+                    app:layout_constraintTop_toTopOf="@+id/cityLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/cityLabel" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
 </layout>
