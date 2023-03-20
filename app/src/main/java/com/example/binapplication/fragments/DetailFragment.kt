@@ -1,6 +1,8 @@
 package com.example.binapplication.fragments
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,6 +52,24 @@ class DetailFragment : Fragment() {
                     }
                 }
             }
+
+        binding.urlData.setOnClickListener {
+            val queryUrl: Uri = Uri.parse("https://www.google.com/search?q=${binding.urlData.text}")
+            val intent = Intent(Intent.ACTION_VIEW, queryUrl)
+            context?.startActivity(intent)
+        }
+
+        binding.phoneData.setOnClickListener {
+            val numberUri: Uri = Uri.parse("tel:${binding.phoneData.text}")
+            val intent = Intent(Intent.ACTION_DIAL, numberUri)
+            context?.startActivity(intent)
+        }
+
+        binding.cityData.setOnClickListener {
+            val queryUrl: Uri = Uri.parse("https://www.google.ru/maps/place/${binding.cityData.text}")
+            val intent = Intent(Intent.ACTION_VIEW, queryUrl)
+            context?.startActivity(intent)
+        }
 
     }
 
